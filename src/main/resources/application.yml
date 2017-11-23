@@ -1,0 +1,56 @@
+###
+#   Database Settings
+###
+
+
+server:
+  port: 8080
+
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:~/example-app3
+    platform: h2
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+    max-active: 5
+    max-idle: 1
+    min-idle: 1
+    initial-size: 1
+    testOnBorrow: true
+    validationQuery: SELECT    
+
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      show_sql: true
+      format_sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+
+
+
+
+###
+#   H2 Settings
+###
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+#logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
